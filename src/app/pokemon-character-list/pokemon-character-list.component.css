@@ -1,0 +1,4 @@
+.paginator-border {
+  border: 1px solid #ccc; /* Add your preferred border style */
+  padding: 10px; /* Add padding to separate the paginator from the border */
+}

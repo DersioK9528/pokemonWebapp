@@ -1,0 +1,46 @@
+.btn btn-sm btn-primary product-btn{
+  color: black;
+  background-color: 	black;
+}
+.bookBtn{
+  float: right;
+  margin-right: -200px;
+}
+.button-row {
+  display: table-cell;
+  width: 490px;
+}
+.detailsBtn{
+  border: 1px solid grey !important;
+}
+
+.example-card {
+  height: 200px;
+  width: 200px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.image
+{
+  height: auto;
+  width: 150px;
+  float: right;
+  margin-right: 17px;
+
+}
+.image-margin{
+  margin: -3px;
+}
+
+.custom-card {
+  width: 400px;
+  margin-bottom: 8px;
+}
+
+.mat-card-border{
+  border:1px solid lightgrey;
+
+}

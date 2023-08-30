@@ -17,6 +17,8 @@ import { PokemonDetailsModalComponent } from './pokemon-details-modal/pokemon-de
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {ActivatedRoute} from "@angular/router";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
     declarations: [
@@ -39,7 +41,9 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     MatDividerModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatChipsModule,
+    MatProgressSpinnerModule
   ],
   providers: [{ provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MatDialogRef, useValue: {} },

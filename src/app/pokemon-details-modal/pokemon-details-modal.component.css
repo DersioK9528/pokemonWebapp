@@ -1,0 +1,73 @@
+.image-modal{
+  height: auto;
+  width: 400px;
+}
+.chips-row{
+  display:flex;
+  gap:8px;
+  float: right;
+  margin-right: 190px;
+}
+
+.close-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+/* Add this CSS to your component's CSS file */
+.custom-progress-bar  {
+  height: 25px !important; /* Adjust the height as needed */
+}
+
+.custom-progress-bar .mat-progress-bar-fill::after {
+  background-color: yellow; /* Set your desired custom color */
+}
+
+.progress-bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Ensure the content is centered vertically */
+  font-weight: bold; /* Add styling to the value */
+}
+
+.custom-modal-container {
+  background-color: white; /* Replace with your desired background color */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.mat-mdc-progress-bar {
+  --mdc-linear-progress-active-indicator-height: 20px;
+  --mdc-linear-progress-track-height: 20px;
+
+  --mdc-linear-progress-track-shape: 0;
+  border-radius: 6px;
+}
+
+.chips-white
+{
+  color:white;
+}
+
+.modal-close-btn
+{
+  float: inherit;
+  margin-right: 50px;
+  margin-top: -60px;
+}
+
+.stat-align
+{
+  float:left;
+  margin-left: -17px;
+}
+
+.custom-divider{
+  margin-top:-16px
+}
+
+
+
+
+

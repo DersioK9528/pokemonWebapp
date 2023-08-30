@@ -7681,6 +7681,25 @@ textarea.form-control-lg {
 
 .text-center {
   text-align: center !important;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+  height: 85px;
+}
+
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) .mdc-evolution-chip__text-label {
+  color: white;
+}
+
+.mat-mdc-standard-chip .mat-mdc-chip-action-label {
+  color: white;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__title {
+  color: white;
+  letter-spacing: 21px;
+  font-weight: bolder;
+  font: revert;
+  font-family: sans-serif;
 }
 
 .text-decoration-none {

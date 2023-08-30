@@ -1,0 +1,15 @@
+<div>
+  <mat-card class="mat-card-border">
+    <mat-card-header class="d-flex justify-content-center">
+      <mat-card-title>{{pokemonCharacter.name | titlecase}}</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content class="d-flex justify-content-center">
+      <img [src]="pokemonCharacter.imageUrl" class="image" alt="{{ pokemonCharacter.name | titlecase}}" />
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions class="d-flex justify-content-center">
+      <button  mat-raised-button type="button" color="primary" (click)="openDetailsDialog(pokemonCharacter.name)">View Details</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,47 @@
+<h1 class="bg-{{types[0].type.name}}" mat-dialog-title style="
+    color: white;
+    letter-spacing: 21px;
+    font-weight: bolder;
+    font: revert;
+    font-family: sans-serif;" class="text-center">{{ data.name | uppercase }}</h1>
+<div class="row">
+  <div mat-dialog-content class="col-md-6">
+    <img class="image-modal" src="{{data.imageUrl}}">
+    <div class="chips-row">
+      <mat-chip-row style="float: initial; margin-top: 5px;" [ngStyle]="{
+          'background-color': 'white'}">Types:</mat-chip-row>
+      <mat-chip-listbox  *ngFor="let type of types">
+        <mat-chip-row  [ngStyle]="{
+          'background-color': getBackgroundColor(type.type.name)}">
+          <span class="chips-white">{{type.type.name}}</span></mat-chip-row>
+      </mat-chip-listbox>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <br>
+    <br>
+    <br>
+    <h4 style="float: right;margin-right: 155px;" class="card-title">{{data.name | titlecase}}'s Stats</h4>
+    <br>
+    <br>
+    <br>
+    <div *ngFor="let stat of statistics" class="row mt-6">
+      <div class="col-sm-3">
+        <h6 class="text-sm-start mt-1">{{stat.stat.name | titlecase}}</h6>
+      </div>
+      <div class="col-md-7">
+        <mat-progress-bar class="custom-progress-bar" [ngStyle]="{
+            '--mdc-linear-progress-active-indicator-color': getBackgroundColor(types[0].type.name),
+            '--mdc-linear-progress-track-color': getLighterBackgroundColor(types[0].type.name, 50)}" [value]="stat.base_stat" mode="determinate"></mat-progress-bar>
+      </div>
+      <div class="col-sm-2">
+        <h6 class="stat-align">{{stat.base_stat}}</h6>
+      </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button class="modal-close-btn" [ngStyle]="{
+            'background-color': getBackgroundColor(types[0].type.name),
+            'color': 'white'}" (click)="closeDialog()">Close</button>
+</div>

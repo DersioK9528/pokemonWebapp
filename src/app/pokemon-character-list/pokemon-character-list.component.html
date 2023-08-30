@@ -1,0 +1,25 @@
+<div class="row" *ngIf= "!loading">
+  <!-- Add this input field to your template -->
+  <div class="input-group">
+    <input class="form-control me-2" type="search" type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterPokemonCharacters()" placeholder="Search for a Pokemon">
+    <div class="input-group-append">
+      <span class="input-group-text"><i class="fas fa-search"></i></span>
+    </div>
+  </div>
+  <div class="col-md-4" *ngFor="let pokemon of pagedPokemonList">
+    <app-pokemon-character [pokemonCharacter]=pokemon></app-pokemon-character>
+  </div>
+  <mat-paginator
+    class="paginator-border"
+    [length]="pokemonCharacterList.length"
+    [pageSize]="pageSize"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+</div>
+
+<div class="row" *ngIf="loading" style="display: flex; justify-content: center; align-items: center;">
+  <div class="col-md-8 text-center">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    Loading Pokemons...
+  </div>
+</div>
