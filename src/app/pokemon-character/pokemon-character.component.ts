@@ -18,10 +18,20 @@ export class PokemonCharacterComponent implements OnInit
 
   @Input() pokemonCharacter:PokemonCharacter | any
 
+  /**
+   *
+   * @param data
+   * @param msg
+   * @param dialog
+   * @param pokemonService
+   */
   constructor( @Inject(MAT_DIALOG_DATA) public data: any,
                private msg:MessengerService, private dialog:MatDialog, private pokemonService:PokemonService){}
 
-
+  /**
+   * Method to open the pokemon modal
+   * @param pokemonName
+   */
   openDetailsDialog(pokemonName:any): void {
     this.dialog.open(PokemonDetailsModalComponent, {
       width: '900px',
@@ -34,25 +44,23 @@ export class PokemonCharacterComponent implements OnInit
   {
   }
 
-  sendId()
-  {
-    this.msg.sendMsg(this.pokemonCharacter.name)
-  }
-
-  getPokemonType(pokemon: any): string {
-    return this.pokemonService.getPokemonType(pokemon)
-  }
-
+  /**
+   * Method to retrieve the pokemon stats array from the Pokemon service
+   * @param pokemonName
+   */
   getPokemonStats(pokemonName:any):any{
     if (pokemonName) {
       this.loading = true;
+      //Retrieve data from the pokemon service
       this.pokemonService.get(pokemonName).subscribe(
         (data) => {
           this.pokemonStats = data;
           this.loading = false;
           this.msg.sendMsg(this.pokemonStats)
         },
+        //Log error if pokemon data is unretrieveable
         (error) => {
+          error.error("Failed to load pokemon data");
           this.loading = false;
         }
       );

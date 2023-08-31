@@ -5,6 +5,9 @@ import {PokemonService} from "../services/pokemon.service";
 import {Subscription} from "rxjs";
 import {MessengerService} from "../services/messenger.service";
 
+/**
+ * Component for displaying detailed information about a Pokémon in a modal dialog.
+ */
 @Component({
   selector: 'app-pokemon-details-modal',
   templateUrl: './pokemon-details-modal.component.html',
@@ -35,21 +38,23 @@ export class PokemonDetailsModalComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  /**
+   * Retrieve observable from pokemon-character class which holds pokemon data
+   */
   ngOnInit(): void {
     this.loading = true;
     this.messengerService.getMsg().subscribe((stats)=>{
       this.pokemonStats = stats;
-      console.log("Modal Data-> " ,this.pokemonStats);
       this.statistics = this.pokemonStats.stats;
       this.types = this.pokemonStats.types
       this.loading = false;
       this.changeDetectorRef.detectChanges();
-      console.log("Extracted Stats Array-> ", this.statistics);
     })
   }
   /**
-   *
-   * @param type
+   * Get the background color for a specific type.
+   * @param type The type of the Pokémon.
+   * @returns The background color in hexadecimal format, or null if type is not recognized.
    */
   getBackgroundColor(type: string): string | null {
     const typeToColorMap: { [key: string]: string } = {
@@ -79,9 +84,10 @@ export class PokemonDetailsModalComponent implements OnInit {
   }
 
   /**
-   *
-   * @param type
-   * @param percent
+   * Get a lighter shade of the background color for a specific type.
+   * @param type The type of the Pokémon.
+   * @param percent The percentage by which to lighten the color.
+   * @returns The lighter background color in hexadecimal format, or null if type is not recognized.
    */
  getLighterBackgroundColor(type: string, percent: number): string | null {
     const typeToColorMap: { [key: string]: string } = {

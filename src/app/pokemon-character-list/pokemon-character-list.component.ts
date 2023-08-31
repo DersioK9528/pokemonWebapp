@@ -11,23 +11,30 @@ export class PokemonCharacterListComponent implements OnInit {
 
   pokemonCharacterList: any = [];
   pagedPokemonList: PokemonCharacter[] = [];
-  pageSize = 12; // Number of items per page
+  // Number of items per page
+  pageSize = 12;
   currentPage = 0;
   loading: boolean = true;
   pokemonCharacters: PokemonCharacter[] = [];
   filteredPokemonCharacters: PokemonCharacter[] = [];
   searchTerm: string = '';
 
+  /**
+   *
+   * @param pokemonService
+   * @param changeDetectorRef
+   */
   constructor(public pokemonService: PokemonService, private changeDetectorRef: ChangeDetectorRef) {}
 
+  /**
+   * Initialize the list of pokemons from the pokemon service
+   */
   ngOnInit(): void {
-    // Initialize component by loading Pokemon data
+
     this.loading = true;
     this.changeDetectorRef.detectChanges();
-    console.log("is loading", this.loading);
-
+    // Load and filter the Pokemon data
     this.pokemonService.getPokemonList().then(pokemonCharacters => {
-      // Load and filter the Pokemon data
       this.pokemonCharacterList = pokemonCharacters;
       this.updatePagedPokemonList();
       this.pokemonCharacters = pokemonCharacters;

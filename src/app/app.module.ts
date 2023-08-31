@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { PokemonCharacterListComponent } from './pokemon-character-list/pokemon-character-list.component';
-import { PokemonCharacterDetailsComponent } from './pokemon-character-details/pokemon-character-details.component';
 import {PokemonCharacterComponent} from "./pokemon-character/pokemon-character.component";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
@@ -24,7 +23,6 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     declarations: [
         AppComponent,
         PokemonCharacterListComponent,
-        PokemonCharacterDetailsComponent,
         PokemonCharacterComponent,
         NavBarComponent,
         PokemonDetailsModalComponent
