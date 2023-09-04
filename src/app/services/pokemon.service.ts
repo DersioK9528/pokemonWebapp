@@ -16,13 +16,13 @@ export class PokemonService {
   }
 
   /**
-   *
+   *Get list of Pokémons from Pokemon API
    */
   async getPokemonList(): Promise<PokemonCharacter[]> {
      const pageSize = 10;
      const totalPokemons = 100;
      for (let offset = 0; offset < totalPokemons; offset += pageSize) {
-       const url = `http://localhost:8080/pokemon-api/pokemons?limit=${pageSize}&offset=${offset}`;
+       const url = `https://java-rest-api-code.azurewebsites.net/pokemon-api/pokemons?limit=${pageSize}&offset=${offset}`;
        try {
          const response = await fetch(url);
          const data = await response.json();
@@ -43,15 +43,11 @@ export class PokemonService {
    }
 
   /**
-   *
-   * @param pokemon
+   * Get Pokémon by specific name
+   * @param name
    */
-  getPokemonType(pokemon: any): string {
-    return pokemon && pokemon.types.length > 0 ? pokemon.types[0].type.name : '';
-  }
-
-  get(name: string): Observable<any> {
-    const apiUrl = `http://localhost:8080/pokemon-api/pokemons/`;
+   get(name: string): Observable<any> {
+    const apiUrl = `https://java-rest-api-code.azurewebsites.net/pokemon-api/pokemons/`;
     const url = `${apiUrl}${name}`;
     return this.http.get<any>(url);
   }
