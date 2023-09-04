@@ -22,7 +22,7 @@ export class PokemonService {
      const pageSize = 10;
      const totalPokemons = 100;
      for (let offset = 0; offset < totalPokemons; offset += pageSize) {
-       const url = `https://pokemon-backend.azurewebsites.net/pokemon-api/pokemons?limit=${pageSize}&offset=${offset}`;
+       const url = `https://itsdockerdude.azurewebsites.net/pokemon-api/pokemons?limit=${pageSize}&offset=${offset}`;
        try {
          const response = await fetch(url);
          const data = await response.json();
@@ -47,7 +47,7 @@ export class PokemonService {
    * @param name
    */
    get(name: string): Observable<any> {
-    const apiUrl = `https://pokemon-backend.azurewebsites.net/pokemon-api/pokemons/`;
+    const apiUrl = `https://itsdockerdude.azurewebsites.net/pokemon-api/pokemons/`;
     const url = `${apiUrl}${name}`;
     return this.http.get<any>(url);
   }
