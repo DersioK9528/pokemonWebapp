@@ -3,28 +3,31 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Azure subscription 1 (78f150c1-9576-4d65-a77d-01d366a886c8)'
-    appType: 'webApp'
-    WebAppName: 'pokemon-frontend'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-
 trigger:
 - master
 
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+jobs:
+- job: BuildAndDeploy
+  displayName: 'Build and Deploy'
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
 
-- script: |
-    npm install -g @angular/cli
-    npm install
-    ng build --prod
-  displayName: 'npm install and build'
+  - script: |
+      npm install -g @angular/cli
+      npm install
+      ng build --prod
+    displayName: 'npm install and build'
+
+  - task: AzureRmWebAppDeployment@4
+    inputs:
+      ConnectionType: 'AzureRM'
+      azureSubscription: 'Azure subscription 1 (78f150c1-9576-4d65-a77d-01d366a886c8)'
+      appType: 'webApp'
+      WebAppName: 'pokemon-frontend'
+      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
