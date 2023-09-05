@@ -18,9 +18,7 @@ export class MessengerService {
     this.subject.next(message)
   }
 
-  sendMsg(message: any){
-    //console.log(message)
-    this.pokemonStatsSubject.next(message)// Trigger an event
+  sendMsg(message: any){ this.pokemonStatsSubject.next(message)// Trigger an event
   }
 
   getMsg():Observable<any>{
